@@ -6,7 +6,7 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.microg.nlp.backend.ichnaea">
+    package="net.beacondb.unifiednlp">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -35,7 +35,7 @@
                 android:value="@string/summary" />
             <meta-data
                 android:name="org.microg.nlp.BACKEND_SETTINGS_ACTIVITY"
-                android:value="org.microg.nlp.backend.ichnaea.SettingsActivity" />
+                android:value="net.beacondb.unifiednlp.SettingsActivity" />
         </service>
 
         <activity

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.microg.nlp.backend.ichnaea;
+package net.beacondb.unifiednlp;
 
 import android.location.Location;
 

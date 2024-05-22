@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.microg.nlp.backend.ichnaea;
+package net.beacondb.unifiednlp;
 
 import android.content.SharedPreferences;
 import android.location.Location;
@@ -34,7 +34,6 @@ public class BackendService extends HelperLocationBackendService
     private static final long MAX_CELLS_AGE = 120000;
     private static final long RATE_LIMIT_MS_FLOOR = 60000;
     private static final long RATE_LIMIT_MS_PADDING = 10000;
-    private static final String PROVIDER = "ichnaea";
 
     private long expBackoffFactor = 0;
 

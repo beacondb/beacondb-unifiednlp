@@ -11,12 +11,12 @@
             android:defaultValue="true"
             android:key="use_wifis"
             android:summary="@string/pref_description_use_wifis"
-            android:title="@string/pref_title_use_wifis"/>
+            android:title="@string/pref_title_use_wifis" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="use_cells"
             android:summary="@string/pref_description_use_cells"
-            android:title="@string/pref_title_use_cells"/>
+            android:title="@string/pref_title_use_cells" />
 
     </PreferenceCategory>
 

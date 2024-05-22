@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.microg.nlp.backend.ichnaea;
+package net.beacondb.unifiednlp;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -32,7 +32,7 @@ public class CellDatabase extends SQLiteOpenHelper {
         try (Cursor cursor = getReadableDatabase().query("cells", new String[]{"lat", "lon", "acc", "time"}, SELECTION, getSelectionArgs(cell), null, null, null)) {
             if (cursor.moveToNext()) {
                 if (cursor.getLong(3) > System.currentTimeMillis() - MAX_AGE) {
-                    return LocationHelper.create("ichnaea", cursor.getDouble(0), cursor.getDouble(1), (float) cursor.getDouble(2));
+                    return LocationHelper.create("beacondb", cursor.getDouble(0), cursor.getDouble(1), (float) cursor.getDouble(2));
                 }
             }
         }

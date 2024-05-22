@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.microg.nlp.backend.ichnaea;
+package net.beacondb.unifiednlp;
 
 import android.location.Location;
 import android.util.Log;
@@ -27,9 +27,8 @@ import java.net.URL;
 public class IchnaeaRequester implements Runnable {
 
     private static final String TAG = "IchnaeaBackendService";
-    private static final String SERVICE_URL = "https://location.services.mozilla.com/v1/geolocate?key=%s";
-    private static final String API_KEY = "068ab754-c06b-473d-a1e5-60e7b1a2eb77";
-    private static final String PROVIDER = "ichnaea";
+    private static final String SERVICE_URL = "https://dev.joel.net.au/v1/geolocate";
+    private static final String PROVIDER = "beacondb";
 
     private final LocationCallback callback;
     private final CellDatabase cellDatabase;
@@ -86,7 +85,8 @@ public class IchnaeaRequester implements Runnable {
     private Location request(String request) {
         HttpURLConnection conn = null;
         try {
-            conn = (HttpURLConnection) new URL(String.format(SERVICE_URL, API_KEY)).openConnection();
+            conn = (HttpURLConnection) new URL(SERVICE_URL).openConnection();
+            conn.setRequestProperty("content-type", "application/json");
             conn.setDoOutput(true);
             conn.setDoInput(true);
             Log.d(TAG, "request: " + request);

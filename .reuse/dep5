@@ -1,5 +1,9 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 
 Files: src/main/res/mipmap-*/*.png
-Copyright: 2015 microG Project Team
+Copyright: 2024 beaconDB
+License: CC-BY-3.0
+
+Files: src/main/ic_launcher-playstore.png
+Copyright: 2024 beaconDB
 License: CC-BY-3.0

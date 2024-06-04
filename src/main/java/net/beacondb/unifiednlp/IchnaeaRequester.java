@@ -27,19 +27,20 @@ import java.net.URL;
 public class IchnaeaRequester implements Runnable {
 
     private static final String TAG = "IchnaeaBackendService";
-    private static final String SERVICE_URL = "https://beacondb.net/v1/geolocate";
     private static final String PROVIDER = "beacondb";
 
     private final LocationCallback callback;
     private final CellDatabase cellDatabase;
     private final CellBackendHelper.Cell singleCell;
+    private final String serviceUrl;
     private final String cellRequest;
     private final String wifiRequest;
 
-    public IchnaeaRequester(LocationCallback backendService, CellDatabase cellDatabase, CellBackendHelper.Cell singleCell, String cellRequest, String wifiRequest) {
+    public IchnaeaRequester(LocationCallback backendService, CellDatabase cellDatabase, CellBackendHelper.Cell singleCell, String serviceUrl, String cellRequest, String wifiRequest) {
         this.callback = backendService;
         this.cellDatabase = cellDatabase;
         this.singleCell = singleCell;
+        this.serviceUrl = serviceUrl;
         this.cellRequest = cellRequest;
         this.wifiRequest = wifiRequest;
     }
@@ -85,7 +86,7 @@ public class IchnaeaRequester implements Runnable {
     private Location request(String request) {
         HttpURLConnection conn = null;
         try {
-            conn = (HttpURLConnection) new URL(SERVICE_URL).openConnection();
+            conn = (HttpURLConnection) new URL(serviceUrl).openConnection();
             conn.setRequestProperty("content-type", "application/json");
             conn.setDoOutput(true);
             conn.setDoInput(true);

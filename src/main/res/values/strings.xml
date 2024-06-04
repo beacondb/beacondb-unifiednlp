@@ -12,4 +12,7 @@
     <string name="pref_description_use_wifis">Whether to send Wi-Fi data to the geolocation service</string>
     <string name="pref_title_use_cells">Use Cell (GSM/UMTS/LTE/CDMA)</string>
     <string name="pref_description_use_cells">Whether to send Cell data to the geolocation service.\nThis requires Android 4.2 or later.</string>
+    <string name="pref_category_network">Network configuration</string>
+    <string name="pref_title_endpoint">Endpoint</string>
+    <string name="pref_description_endpoint">URL to use for geolocation requests</string>
 </resources>

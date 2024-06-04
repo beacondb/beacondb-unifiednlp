@@ -50,6 +50,8 @@ public class BackendService extends HelperLocationBackendService
     private long lastRequestTime = 0;
     private long lastResponseTime = 0;
 
+    private String serviceUrl;
+
     private Location lastResponse = null;
 
 
@@ -141,6 +143,7 @@ public class BackendService extends HelperLocationBackendService
             lastWifiTime = 0;
             wiFisEnabled = false;
         }
+        serviceUrl = preferences.getString("endpoint", "https://beacondb.net/v1/geolocate");
     }
 
     @Override
@@ -203,7 +206,7 @@ public class BackendService extends HelperLocationBackendService
                 Cell singleCell = cells != null ? cells.iterator().next() : null;
                 String cellRequest = cells != null ? createRequest(cells, null) : null;
                 String wifiRequest = wiFis != null ? createRequest(cells, wiFis) : null;
-                IchnaeaRequester requester = new IchnaeaRequester(this, cellDatabase, singleCell, cellRequest, wifiRequest);
+                IchnaeaRequester requester = new IchnaeaRequester(this, cellDatabase, singleCell, serviceUrl, cellRequest, wifiRequest);
                 Thread t = new Thread(requester);
                 t.start();
             } else {

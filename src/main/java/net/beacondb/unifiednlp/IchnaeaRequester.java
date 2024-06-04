@@ -88,6 +88,7 @@ public class IchnaeaRequester implements Runnable {
         try {
             conn = (HttpURLConnection) new URL(serviceUrl).openConnection();
             conn.setRequestProperty("content-type", "application/json");
+            conn.setRequestProperty("user-agent", BuildConfig.APPLICATION_ID + "/" + BuildConfig.VERSION_NAME);
             conn.setDoOutput(true);
             conn.setDoInput(true);
             Log.d(TAG, "request: " + request);

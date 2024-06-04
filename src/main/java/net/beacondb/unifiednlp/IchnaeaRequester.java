@@ -27,7 +27,7 @@ import java.net.URL;
 public class IchnaeaRequester implements Runnable {
 
     private static final String TAG = "IchnaeaBackendService";
-    private static final String SERVICE_URL = "https://dev.joel.net.au/v1/geolocate";
+    private static final String SERVICE_URL = "https://beacondb.net/v1/geolocate";
     private static final String PROVIDER = "beacondb";
 
     private final LocationCallback callback;

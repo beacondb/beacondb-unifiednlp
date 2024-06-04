@@ -30,9 +30,9 @@
                 <action android:name="org.microg.nlp.LOCATION_BACKEND" />
             </intent-filter>
 
-            <meta-data
+            <!--<meta-data
                 android:name="org.microg.nlp.BACKEND_SUMMARY"
-                android:value="@string/summary" />
+                android:value="@string/summary" />-->
             <meta-data
                 android:name="org.microg.nlp.BACKEND_SETTINGS_ACTIVITY"
                 android:value="net.beacondb.unifiednlp.SettingsActivity" />

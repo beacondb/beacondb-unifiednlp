@@ -5,8 +5,8 @@
   -->
 
 <resources>
-    <string name="app_name">Mozilla UnifiedNlp Backend</string>
-    <string name="backend_name">Геолокационный сервис Mozilla</string>
+    <string name="app_name">beaconDB UnifiedNlp Backend</string>
+    <string name="backend_name">beaconDB</string>
 
     <string name="pref_category_source">Источники данных</string>
     <string name="pref_title_use_wifis">Использовать Wi-Fi</string>

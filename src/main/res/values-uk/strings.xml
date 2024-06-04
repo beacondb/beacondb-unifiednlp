@@ -5,8 +5,8 @@
   -->
 
 <resources>
-    <string name="app_name">Mozilla UnifiedNlp Backend</string>
-    <string name="backend_name">Сервіс позиціювання Mozilla</string>
+    <string name="app_name">beaconDB UnifiedNlp Backend</string>
+    <string name="backend_name">beaconDB</string>
 
     <string name="pref_category_source">Джерела даних</string>
     <string name="pref_title_use_wifis">Використовувати Wi-Fi</string>

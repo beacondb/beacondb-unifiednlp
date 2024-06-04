@@ -144,6 +144,9 @@ public class BackendService extends HelperLocationBackendService
             wiFisEnabled = false;
         }
         serviceUrl = preferences.getString("endpoint", "https://beacondb.net/v1/geolocate");
+
+        lastRequestTime = 0;
+        lastResponseTime = 0;
     }
 
     @Override

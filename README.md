@@ -3,23 +3,22 @@ SPDX-FileCopyrightText: 2015, microg Project Team
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
+# beaconDB UnifiedNlp Backend
 
-IchnaeaNlpBackend
-===================
-[![Build Status](https://github.com/microg/IchnaeaNlpBackend/workflows/Build/badge.svg)](https://github.com/microg/IchnaeaNlpBackend/actions)
+[![Build Status](https://github.com/beacondb/beacondb-unifiednlp/workflows/Build/badge.svg)](https://github.com/beacondb/beacondb-unifiednlp/actions)
 
-[UnifiedNlp](https://github.com/microg/UnifiedNlp) backend that uses [Mozilla Location Services](https://location.services.mozilla.com/) to resolve locations.
+[UnifiedNlp](https://github.com/microg/UnifiedNlp) backend that uses [beaconDB](https://beacondb.net/) to resolve locations. The backend can also be configured to use a custom Ichnaea endpoint.
 
-License
--------
+## License
+
     Copyright (C) 2015-2022 microG Project Team
-    
+
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
-    
+
         http://www.apache.org/licenses/LICENSE-2.0
-    
+
     Unless required by applicable law or agreed to in writing, software
     distributed under the License is distributed on an "AS IS" BASIS,
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.

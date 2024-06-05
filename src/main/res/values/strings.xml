@@ -16,4 +16,6 @@
     <string name="pref_category_network">Network configuration</string>
     <string name="pref_title_endpoint">Endpoint</string>
     <string name="pref_description_endpoint">URL to use for geolocation requests</string>
+    <string name="pref_title_ignore_rate_limit">Ignore rate limit</string>
+    <string name="pref_description_ignore_rate_limit">Whether to request a new location estimate as soon as new WiFi information is available</string>
 </resources>

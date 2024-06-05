@@ -51,6 +51,7 @@ public class BackendService extends HelperLocationBackendService
     private long lastResponseTime = 0;
 
     private String serviceUrl;
+    private boolean ignoreRateLimit;
 
     private Location lastResponse = null;
 
@@ -64,8 +65,12 @@ public class BackendService extends HelperLocationBackendService
 
     @Override
     public synchronized boolean canRun() {
-        long delay = RATE_LIMIT_MS_FLOOR + (RATE_LIMIT_MS_PADDING * expBackoffFactor);
-        return (Math.max(lastRequestTime, lastResponseTime) + delay < System.currentTimeMillis());
+        if (ignoreRateLimit) {
+            return true;
+        } else {
+            long delay = RATE_LIMIT_MS_FLOOR + (RATE_LIMIT_MS_PADDING * expBackoffFactor);
+            return (Math.max(lastRequestTime, lastResponseTime) + delay < System.currentTimeMillis());
+        }
     }
 
     // Methods to extend or reduce the backoff time
@@ -143,7 +148,9 @@ public class BackendService extends HelperLocationBackendService
             lastWifiTime = 0;
             wiFisEnabled = false;
         }
+
         serviceUrl = preferences.getString("endpoint", "https://beacondb.net/v1/geolocate");
+        ignoreRateLimit = preferences.getBoolean("ignore_rate_limit", false);
 
         lastRequestTime = 0;
         lastResponseTime = 0;
@@ -186,10 +193,10 @@ public class BackendService extends HelperLocationBackendService
 
     private synchronized void startCalculate() {
         Set<WiFi> wiFis = this.wiFis;
-        if (lastWifiTime < System.currentTimeMillis() - MAX_WIFI_AGE) wiFis = null;
+        if (!ignoreRateLimit && lastWifiTime < System.currentTimeMillis() - MAX_WIFI_AGE) wiFis = null;
         if (wiFis != null && wiFis.size() < 2) wiFis = null;
         Set<Cell> cells = this.cells;
-        if (lastCellTime < System.currentTimeMillis() - MAX_CELLS_AGE) cells = null;
+        if (!ignoreRateLimit && lastCellTime < System.currentTimeMillis() - MAX_CELLS_AGE) cells = null;
         if (cells != null && cells.isEmpty()) cells = null;
         if (cells == null && wiFis == null) return;
         if ((lastWifiTime == 0 && wiFisEnabled) || (lastCellTime == 0 && cellsEnabled)) return;

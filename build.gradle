@@ -15,8 +15,8 @@ buildscript {
 
 /* This is a hack, trying to provide release updates to F-Droid until it can properly handle Gradle
 applicationId "net.beacondb.unifiednlp"
-versionName "1.7.0"
-versionCode "20048"
+versionName "1.8.0"
+versionCode "20051"
  */
 
 apply plugin: 'com.android.application'

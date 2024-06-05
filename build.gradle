@@ -14,9 +14,9 @@ buildscript {
 }
 
 /* This is a hack, trying to provide release updates to F-Droid until it can properly handle Gradle
-applicationId "org.microg.nlp.backend.ichnaea"
-versionName "1.5.0"
-versionCode "20036"
+applicationId "net.beacondb.unifiednlp"
+versionName "1.7.0"
+versionCode "20048"
  */
 
 apply plugin: 'com.android.application'
@@ -24,7 +24,8 @@ apply plugin: 'com.android.application'
 String getMyVersionName() {
     def stdout = new ByteArrayOutputStream()
     if (rootProject.file("gradlew").exists())
-        exec { commandLine 'git', 'describe', '--tags', '--always', '--dirty'; standardOutput = stdout }
+        exec { commandLine 'git', 'describe', '--tags', '--always', '--dirty'
+            standardOutput = stdout }
     else // automatic build system, don't tag dirty
         exec { commandLine 'git', 'describe', '--tags', '--always'; standardOutput = stdout }
     return stdout.toString().trim().substring(1)
@@ -62,6 +63,21 @@ android {
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("release.jks")
+            storePassword System.getenv("SIGNING_KEYSTORE_PASSWORD")
+            keyAlias System.getenv("SIGNING_ALIAS")
+            keyPassword System.getenv("SIGNING_ALIAS_PASSWORD")
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
     }
 }
 

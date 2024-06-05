@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2024, Joel Koen
+# SPDX-License-Identifier: CC0-1.0
+
+name: Build release
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - v*
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: |
+          echo "$SIGNING_KEYSTORE" | base64 -d > release.jks
+          ./gradlew --no-daemon assembleRelease
+        env:
+          SIGNING_KEYSTORE: ${{ secrets.SIGNING_KEYSTORE }}
+          SIGNING_KEYSTORE_PASSWORD: ${{ secrets.SIGNING_KEYSTORE_PASSWORD }}
+          SIGNING_ALIAS: ${{ secrets.SIGNING_ALIAS }}
+          SIGNING_ALIAS_PASSWORD: ${{ secrets.SIGNING_ALIAS_PASSWORD }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-apk
+          path: build/outputs/apk/release/beacondb-unifiednlp-release.apk

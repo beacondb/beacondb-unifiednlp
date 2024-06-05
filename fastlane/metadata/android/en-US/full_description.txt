@@ -1,0 +1,3 @@
+<a href="https://f-droid.org/packages/com.google.android.gms">UnifiedNLP</a>
+backend that uses <a href="https://beacondb.net/">beaconDB</a> to resolve
+locations. The backend can also be configured to use a custom Ichnaea endpoint.

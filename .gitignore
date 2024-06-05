@@ -10,3 +10,5 @@ user.gradle
 local.properties
 .idea/
 BuildConfig.java
+release/
+release.jks

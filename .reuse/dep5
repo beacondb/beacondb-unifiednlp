@@ -1,9 +1,13 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 
 Files: src/main/res/mipmap-*/*.png
-Copyright: 2024 beaconDB
+Copyright: 2024 Joel Koen
 License: CC-BY-3.0
 
 Files: src/main/ic_launcher-playstore.png
-Copyright: 2024 beaconDB
+Copyright: 2024 Joel Koen
 License: CC-BY-3.0
+
+FIles: fastlane/metadata/**/*.txt
+Copyright: 2024 Joel Koen
+License: CC0-1.0

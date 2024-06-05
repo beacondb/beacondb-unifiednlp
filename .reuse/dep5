@@ -4,7 +4,7 @@ Files: src/main/res/mipmap-*/*.png
 Copyright: 2024 Joel Koen
 License: CC-BY-3.0
 
-Files: src/main/ic_launcher-playstore.png
+Files: fastlane/**/*.png
 Copyright: 2024 Joel Koen
 License: CC-BY-3.0
 

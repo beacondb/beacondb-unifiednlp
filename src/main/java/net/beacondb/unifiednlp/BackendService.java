@@ -149,7 +149,7 @@ public class BackendService extends HelperLocationBackendService
             wiFisEnabled = false;
         }
 
-        serviceUrl = preferences.getString("endpoint", "https://beacondb.net/v1/geolocate");
+        serviceUrl = preferences.getString("endpoint", "https://api.beacondb.net/v1/geolocate");
         ignoreRateLimit = preferences.getBoolean("ignore_rate_limit", false);
 
         lastRequestTime = 0;
